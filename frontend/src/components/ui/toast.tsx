@@ -22,7 +22,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
   return (
     <ToastContext.Provider value={{ toast: addToast }}>
       {children}
-      <div className="fixed bottom-0 right-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]">
+      <div className="fixed bottom-0 right-0 z-[100] flex max-h-[100dvh] w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]">
         {toasts.map((t) => (
           <div key={t.id} className={cn("group pointer-events-auto relative flex w-full items-center justify-between space-x-4 overflow-hidden rounded-md border p-6 pr-8 shadow-lg transition-all mb-4", t.type === 'error' ? 'destructive group border-destructive bg-destructive text-destructive-foreground' : 'bg-background border')} >
             <div className="flex gap-3">

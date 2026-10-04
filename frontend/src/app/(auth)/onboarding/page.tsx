@@ -5,7 +5,7 @@ import { StepFlow } from "@/components/ui/step-flow";
 
 export default function OnboardingPage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background py-12 px-4">
+    <div className="min-h-[100dvh] flex items-center justify-center bg-background py-12 px-4">
       <div className="max-w-xl w-full space-y-12">
         <SectionHeader title="Complete Profile" subtitle="Just a few more details before you can join events and submit projects." align="center" />
         
@@ -48,3 +48,4 @@ export default function OnboardingPage() {
     </div>
   );
 }
+

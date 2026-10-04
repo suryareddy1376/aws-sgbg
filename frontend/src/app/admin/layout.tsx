@@ -11,7 +11,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   // Basic admin check: user must have at least one admin role to even see the portal
   if (!session || !session.adminRoles || session.adminRoles.length === 0) {
     return (
-      <div className="flex h-screen items-center justify-center bg-muted/20">
+      <div className="flex h-[100dvh] items-center justify-center bg-muted/20">
         <div className="text-center space-y-4 max-w-sm">
           <ShieldAlert className="h-16 w-16 text-destructive mx-auto" />
           <h2 className="text-2xl font-bold">Admin Access Required</h2>
@@ -41,7 +41,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   ];
 
   return (
-    <div className="flex min-h-screen bg-muted/10">
+    <div className="flex min-h-[100dvh] bg-muted/10">
       <aside className="hidden w-64 flex-col border-r bg-background md:flex">
         <div className="flex h-16 items-center border-b px-6 bg-muted/30">
           <Link href="/" className="font-bold text-sm">AWS SBG <span className="text-primary">Admin</span></Link>
@@ -69,7 +69,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         </div>
       </aside>
 
-      <main className="flex-1 flex flex-col h-screen overflow-hidden">
+      <main className="flex-1 flex flex-col h-[100dvh] overflow-hidden">
         <header className="flex h-16 items-center justify-between border-b bg-background px-6">
           <div className="md:hidden font-bold">Admin Portal</div>
           <div className="flex flex-1 items-center justify-end gap-4">
@@ -83,3 +83,4 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     </div>
   )
 }
+

@@ -11,7 +11,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
   
   if (!session) {
     return (
-      <div className="flex h-screen items-center justify-center">
+      <div className="flex h-[100dvh] items-center justify-center">
         <div className="text-center space-y-4">
           <ShieldAlert className="h-12 w-12 text-destructive mx-auto" />
           <h2 className="text-2xl font-bold">Access Denied</h2>
@@ -32,7 +32,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
   ];
 
   return (
-    <div className="flex min-h-screen bg-muted/20">
+    <div className="flex min-h-[100dvh] bg-muted/20">
       {/* Sidebar */}
       <aside className="hidden w-64 border-r bg-background md:block">
         <div className="flex h-16 items-center border-b px-6">
@@ -57,20 +57,22 @@ export default async function DashboardLayout({ children }: { children: React.Re
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col h-screen overflow-hidden relative">
-        <header className="flex h-16 items-center justify-between border-b bg-background px-6">
-          <MobileSidebar navItems={navItems} shortName={siteConfig.shortName} />
-          <div className="flex flex-1 items-center justify-end gap-4">
+      <main className="flex-1 flex flex-col h-[100dvh] overflow-hidden relative">
+        <header className="flex h-16 items-center justify-between md:justify-end border-b bg-background px-6">
+          <Link href="/" className="md:hidden font-bold gradient-text">{siteConfig.shortName}</Link>
+          <div className="flex items-center gap-4">
             <span className="text-sm font-medium">{session.email}</span>
             <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center text-primary text-sm font-bold">
               {session.email[0].toUpperCase()}
             </div>
           </div>
         </header>
-        <div className="flex-1 overflow-y-auto p-6 md:p-8">
+        <div className="flex-1 overflow-y-auto p-6 md:p-8 pb-24 md:pb-8">
           {children}
         </div>
+        <MobileSidebar navItems={navItems} shortName={siteConfig.shortName} />
       </main>
     </div>
   )
 }
+

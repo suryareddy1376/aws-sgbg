@@ -37,22 +37,22 @@ export function Footer() {
           <h4 className="font-mono text-xs font-bold text-foreground mb-6 uppercase tracking-widest text-border">Community</h4>
           <ul className="space-y-4 text-sm font-medium">
             <li>
-              <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors focus-visible:ring-2 focus-visible:ring-accent w-fit">
+              <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 py-2 -my-2 text-muted-foreground hover:text-primary transition-colors focus-visible:ring-2 focus-visible:ring-accent w-fit">
                 <Camera className="h-4 w-4" /> Instagram
               </a>
             </li>
             <li>
-              <a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors focus-visible:ring-2 focus-visible:ring-accent w-fit">
+              <a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 py-2 -my-2 text-muted-foreground hover:text-primary transition-colors focus-visible:ring-2 focus-visible:ring-accent w-fit">
                 <User className="h-4 w-4" /> LinkedIn
               </a>
             </li>
             <li>
-              <a href="https://chat.whatsapp.com/example" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors focus-visible:ring-2 focus-visible:ring-accent w-fit">
+              <a href="https://chat.whatsapp.com/example" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 py-2 -my-2 text-muted-foreground hover:text-primary transition-colors focus-visible:ring-2 focus-visible:ring-accent w-fit">
                 <MessageCircle className="h-4 w-4" /> WhatsApp
               </a>
             </li>
             <li>
-              <a href="https://github.com/awsclubkare" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors focus-visible:ring-2 focus-visible:ring-accent w-fit">
+              <a href="https://github.com/awsclubkare" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 py-2 -my-2 text-muted-foreground hover:text-primary transition-colors focus-visible:ring-2 focus-visible:ring-accent w-fit">
                 <Code className="h-4 w-4" /> GitHub
               </a>
             </li>

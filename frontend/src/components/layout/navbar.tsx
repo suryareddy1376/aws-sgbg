@@ -27,8 +27,12 @@ export function Navbar() {
       if (e.key === 'Escape') setIsOpen(false)
     }
     if (isOpen) {
+      document.body.style.overflow = 'hidden'
       document.addEventListener('keydown', handleEscape)
-      return () => document.removeEventListener('keydown', handleEscape)
+      return () => {
+        document.body.style.overflow = ''
+        document.removeEventListener('keydown', handleEscape)
+      }
     }
   }, [isOpen])
 
@@ -84,28 +88,33 @@ export function Navbar() {
             </button>
           </div>
         </div>
-        {isOpen && (
-          <div ref={navRef} className="container md:hidden pb-6 pt-4 bg-background border-b border-border absolute w-full left-0 top-full shadow-2xl">
-            <nav className="flex flex-col gap-4">
-              {siteConfig.nav.main.map((item, i) => (
-                <Link 
-                  key={item.href} 
-                  href={item.href} 
-                  className="text-lg font-display tracking-tight py-2 focus-visible:ring-2 focus-visible:ring-accent opacity-0 animate-in fade-in slide-in-from-top-4" 
-                  style={{ animationFillMode: 'forwards', animationDelay: `${i * 60}ms` }}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.label}
+                  {isOpen && (
+            <div className="fixed inset-0 top-[64px] z-40 bg-background md:hidden flex flex-col h-[calc(100dvh-64px)] overflow-y-auto">
+              <nav className="container flex-1 flex flex-col pt-8 pb-32 gap-6">
+                {siteConfig.nav.main.map((item, i) => (
+                  <Link 
+                    key={item.href} 
+                    href={item.href} 
+                    className="flex items-center gap-4 text-3xl font-display font-bold tracking-tight py-2 focus-visible:ring-2 focus-visible:ring-accent opacity-0 animate-in fade-in slide-in-from-bottom-4" 
+                    style={{ animationFillMode: 'forwards', animationDelay: `${i * 60}ms` }}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <span className="font-mono text-sm text-muted-foreground font-normal tracking-widest">{String(i + 1).padStart(2, '0')}</span>
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+              
+              <div className="sticky bottom-0 border-t border-border bg-background p-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] flex flex-col gap-3 mt-auto shadow-[0_-20px_40px_-15px_rgba(0,0,0,0.5)]">
+                <Link href="/login" onClick={() => setIsOpen(false)} className="w-full">
+                  <Button variant="outline" className="w-full h-12 text-base">Sign In</Button>
                 </Link>
-              ))}
-              <div className="h-px bg-border my-2" />
-              <div className="flex flex-col gap-3 opacity-0 animate-in fade-in slide-in-from-top-4" style={{ animationFillMode: 'forwards', animationDelay: `${siteConfig.nav.main.length * 60}ms` }}>
-                <Link href="/login" onClick={() => setIsOpen(false)}><Button variant="outline" className="w-full">Sign In</Button></Link>
-                <Link href={siteConfig.nav.cta.href} onClick={() => setIsOpen(false)}><Button className="w-full">{siteConfig.nav.cta.label}</Button></Link>
+                <Link href={siteConfig.nav.cta.href} onClick={() => setIsOpen(false)} className="w-full">
+                  <Button className="w-full h-12 text-base">{siteConfig.nav.cta.label}</Button>
+                </Link>
               </div>
-            </nav>
-          </div>
-        )}
+            </div>
+          )}
       </header>
     </>
   )

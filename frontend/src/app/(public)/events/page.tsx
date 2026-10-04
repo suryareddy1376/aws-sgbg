@@ -17,10 +17,12 @@ export default async function EventsPage() {
       <div className="grid lg:grid-cols-4 gap-12">
         <div className="lg:col-span-3 space-y-8">
           <Tabs defaultValue="upcoming">
-            <TabsList>
-              <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
-              <TabsTrigger value="past">Past Events</TabsTrigger>
-            </TabsList>
+            <div className="sticky top-[56px] z-30 bg-background/95 backdrop-blur py-4 -mx-4 px-4 md:mx-0 md:px-0">
+              <TabsList>
+                <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
+                <TabsTrigger value="past">Past Events</TabsTrigger>
+              </TabsList>
+            </div>
             
             <TabsContent value="upcoming" className="mt-8">
               {upcomingEvents.length > 0 ? (

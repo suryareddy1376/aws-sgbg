@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 import * as React from "react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
@@ -10,7 +10,7 @@ export function Hero() {
   const words = ["Learn.", "Build.", "Lead."]
 
   return (
-    <section className="relative w-full min-h-[80vh] flex flex-col justify-center pt-24 pb-16 overflow-hidden">
+    <section className="relative w-full min-h-[75vh] md:min-h-[80vh] flex flex-col justify-center pt-24 md:pt-32 pb-16 overflow-hidden">
       <div className="absolute inset-0 noise-overlay" />
       <div className="absolute inset-0 blueprint-grid opacity-50 -z-10" />
       <div className="absolute top-1/4 -right-1/4 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl -z-10 pointer-events-none" />
@@ -22,10 +22,10 @@ export function Hero() {
             className="font-mono text-xs uppercase tracking-widest text-muted-foreground border border-border px-3 py-1 bg-surface/50 animate-fade-up"
             style={{ animationDelay: "100ms" }}
           >
-            {`// KARE · Krishnan Kovil`}
+            {`// KARE � Krishnan Kovil`}
           </div>
           
-          <h1 className="font-display text-5xl sm:text-6xl lg:text-8xl font-black tracking-tighter leading-[0.9]">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tighter leading-[0.9]">
             {words.map((word, i) => (
               <span 
                 key={word} 

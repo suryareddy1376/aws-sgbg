@@ -22,7 +22,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div className="min-h-[100dvh] flex items-center justify-center bg-background py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="absolute inset-0 gradient-hero opacity-50 -z-10" />
       
       <div className="max-w-md w-full space-y-8 relative z-10">
@@ -33,34 +33,34 @@ export default function LoginPage() {
           <SectionHeader title="Welcome Back" subtitle="Sign in to the KARE AWS SBG Portal" align="center" as="h1" />
         </div>
         
-        <div className="bg-card/80 backdrop-blur-md border border-border p-8 rounded-2xl shadow-xl space-y-6">
+        <div className="bg-card/80 backdrop-blur-md border border-border p-6 sm:p-8 rounded-2xl shadow-xl space-y-6">
+          <Button variant="outline" className="w-full h-14 text-base font-medium bg-background hover:bg-surface border-border shadow-sm" disabled={isLoading}>
+            <Cloud className="w-6 h-6 mr-3 text-primary" />
+            Continue with Google
+          </Button>
+
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-border"></div></div>
+            <div className="relative flex justify-center text-sm"><span className="px-2 bg-card text-muted-foreground uppercase tracking-wider font-mono text-xs">Or use email</span></div>
+          </div>
+
           <form className="space-y-5" onSubmit={handleSubmit}>
             <div className="space-y-2">
               <Label htmlFor="email">Email Address</Label>
-              <Input id="email" type="email" placeholder="student@kare.edu.in" required disabled={isLoading} />
+              <Input id="email" type="email" placeholder="student@kare.edu.in" autoComplete="email" inputMode="email" required disabled={isLoading} className="h-12 text-base" />
             </div>
             <div className="space-y-2">
               <div className="flex justify-between items-center">
                 <Label htmlFor="password">Password</Label>
                 <Link href="/forgot-password" className="text-xs text-primary hover:underline focus-visible:ring-2 focus-visible:ring-accent rounded-sm">Forgot password?</Link>
               </div>
-              <Input id="password" type="password" required disabled={isLoading} />
+              <Input id="password" type="password" autoComplete="current-password" required disabled={isLoading} className="h-12 text-base" />
             </div>
-            <Button type="submit" className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 border-0" disabled={isLoading}>
-              {isLoading ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : null}
+            <Button type="submit" className="w-full h-12 bg-primary hover:bg-primary-hover border-0 text-base shadow-[0_4px_0_0_#13101A] active:shadow-none active:translate-y-1 transition-all" disabled={isLoading}>
+              {isLoading ? <Loader2 className="h-5 w-5 mr-2 animate-spin" /> : null}
               {isLoading ? "Signing in..." : "Sign In"}
             </Button>
           </form>
-
-          <div className="relative">
-            <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-border"></div></div>
-            <div className="relative flex justify-center text-sm"><span className="px-2 bg-card text-muted-foreground">Or continue with</span></div>
-          </div>
-
-          <Button variant="outline" className="w-full bg-background" disabled={isLoading}>
-            <Cloud className="w-5 h-5 mr-2 text-muted-foreground" />
-            Sign in with Google
-          </Button>
         </div>
 
         <p className="text-center text-sm text-muted-foreground">
@@ -70,3 +70,4 @@ export default function LoginPage() {
     </div>
   );
 }
+

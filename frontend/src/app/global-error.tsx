@@ -10,7 +10,7 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
 
   return (
     <html lang="en" className="dark">
-      <body className="bg-background text-foreground flex items-center justify-center min-h-screen">
+      <body className="bg-background text-foreground flex items-center justify-center min-h-[100dvh]">
         <div className="text-center space-y-6 max-w-md p-8 border border-border bg-card rounded-2xl shadow-xl">
           <div className="h-16 w-16 bg-destructive/10 rounded-full flex items-center justify-center text-destructive mx-auto">
             <AlertTriangle className="h-8 w-8" />
@@ -25,3 +25,4 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
     </html>
   )
 }
+

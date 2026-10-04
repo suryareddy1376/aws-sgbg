@@ -11,7 +11,7 @@ export default async function VerifyCertificatePage({ params }: { params: { id: 
 
   if (!certificate) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background py-12 px-4">
+      <div className="min-h-[100dvh] flex items-center justify-center bg-background py-12 px-4">
         <div className="max-w-md w-full space-y-8 text-center">
           <div className="h-20 w-20 bg-destructive/10 rounded-full flex items-center justify-center text-destructive mx-auto">
             <XCircle className="h-10 w-10" />
@@ -29,7 +29,7 @@ export default async function VerifyCertificatePage({ params }: { params: { id: 
   const isValid = certificate.status === 'valid';
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-muted/10 py-12 px-4">
+    <div className="min-h-[100dvh] flex items-center justify-center bg-muted/10 py-12 px-4">
       <div className="max-w-2xl w-full space-y-8">
         
         <div className="text-center space-y-4">

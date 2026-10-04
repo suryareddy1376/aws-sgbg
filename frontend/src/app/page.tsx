@@ -23,20 +23,20 @@ export default async function HomePage() {
   const featuredProjects = await getFeaturedProjects();
 
   return (
-    <div className="flex min-h-screen flex-col bg-background">
+    <div className="flex min-h-[100dvh] flex-col bg-background">
       <Navbar />
       <main className="flex-1 w-full overflow-hidden">
         <Hero />
         <Marquee />
         
         {/* What We Do */}
-        <section className="container py-24 md:py-32">
+        <section className="container py-16 md:py-24 lg:py-32">
           <SectionHeader title="What We Do" subtitle="We build cloud skills through hands-on experience and community learning." kicker="01 / Foundation" />
           <EditorialList />
         </section>
 
         {/* Upcoming Events */}
-        <section className="container py-24 md:py-32">
+        <section className="container py-16 md:py-24 lg:py-32">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
             <SectionHeader title="Upcoming Sessions" subtitle="Workshops, builds, and meetups." kicker="02 / Calendar" className="pb-0" />
             <Link 
@@ -67,7 +67,7 @@ export default async function HomePage() {
         </section>
 
         {/* Featured Projects */}
-        <section className="bg-surface py-24 md:py-32 border-y border-border">
+        <section className="bg-surface py-16 md:py-24 lg:py-32 border-y border-border">
           <div className="container">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
               <SectionHeader title="Featured Builds" subtitle="Architecture and projects shipped by members." kicker="03 / Showcase" className="pb-0" />
@@ -88,7 +88,7 @@ export default async function HomePage() {
         </section>
 
         {/* Why Join */}
-        <section className="container py-24 md:py-32">
+        <section className="container py-16 md:py-24 lg:py-32">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-start">
             <div className="lg:col-span-5 lg:sticky lg:top-32">
               <SectionHeader title="Why Join?" kicker="04 / Benefits" className="pb-0" />
@@ -117,3 +117,4 @@ export default async function HomePage() {
     </div>
   );
 }
+

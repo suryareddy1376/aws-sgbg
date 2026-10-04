@@ -10,7 +10,14 @@ export function Tabs({ defaultValue, className, children }: { defaultValue: stri
 }
 
 export function TabsList({ className, children }: { className?: string; children: React.ReactNode }) {
-  return <div className={cn("inline-flex h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground", className)}>{children}</div>
+  return (
+    <div className="relative w-full overflow-hidden">
+      <div className={cn("inline-flex h-12 md:h-10 w-full overflow-x-auto snap-x scrollbar-hide items-center justify-start md:justify-center rounded-md bg-muted p-1 text-muted-foreground", className)}>
+        {children}
+      </div>
+      <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-muted to-transparent pointer-events-none md:hidden" />
+    </div>
+  )
 }
 
 export function TabsTrigger({ value, className, children }: { value: string; className?: string; children: React.ReactNode }) {
@@ -20,7 +27,7 @@ export function TabsTrigger({ value, className, children }: { value: string; cla
   return (
     <button
       onClick={() => ctx.setActiveTab(value)}
-      className={cn("inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50", isActive ? "bg-background text-foreground shadow-sm" : "hover:text-foreground", className)}
+      className={cn("inline-flex items-center justify-center whitespace-nowrap rounded-sm px-4 py-2 md:px-3 md:py-1.5 flex-shrink-0 snap-start text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50", isActive ? "bg-background text-foreground shadow-sm" : "hover:text-foreground", className)}
     >
       {children}
     </button>

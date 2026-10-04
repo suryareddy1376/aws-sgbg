@@ -11,7 +11,7 @@ export default function ErrorBoundary({ error, reset }: { error: Error & { diges
   }, [error])
 
   return (
-    <div className="flex min-h-screen flex-col bg-background">
+    <div className="flex min-h-[100dvh] flex-col bg-background">
       <Navbar />
       <main className="flex-1 flex items-center justify-center p-4">
         <div className="text-center space-y-6 max-w-md p-8 border border-border bg-card rounded-2xl shadow-xl">
@@ -29,3 +29,4 @@ export default function ErrorBoundary({ error, reset }: { error: Error & { diges
     </div>
   )
 }
+

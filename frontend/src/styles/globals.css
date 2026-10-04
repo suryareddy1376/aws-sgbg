@@ -66,6 +66,8 @@
   }
 
   a, button {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(124, 58, 237, 0.1);
     cursor: pointer;
   }
 
@@ -141,4 +143,14 @@
   padding-inline: 1rem;
   @media (min-width: 640px) { padding-inline: 1.5rem; }
   @media (min-width: 1024px) { padding-inline: 2rem; }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }

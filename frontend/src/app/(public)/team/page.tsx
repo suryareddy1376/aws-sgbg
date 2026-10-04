@@ -29,7 +29,7 @@ export default async function TeamPage() {
           {faculty.length > 0 && (
             <section className="space-y-8">
               <SectionHeader title="Faculty Support" as="h2" />
-              <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {faculty.map(member => <TeamCard key={member.email} {...member} />)}
               </div>
             </section>
@@ -38,7 +38,7 @@ export default async function TeamPage() {
           {leader.length > 0 && (
             <section className="space-y-8">
               <SectionHeader title="Student Builder Group Leader" subtitle="Official AWS Program Representative" as="h2" />
-              <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {leader.map(member => <TeamCard key={member.email} {...member} />)}
               </div>
             </section>
@@ -47,7 +47,7 @@ export default async function TeamPage() {
           {core.length > 0 && (
             <section className="space-y-8">
               <SectionHeader title="Core Team" subtitle="KARE Club Executive Board" as="h2" />
-              <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 max-[339px]:grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
                 {core.map(member => <TeamCard key={member.email} {...member} />)}
               </div>
             </section>
@@ -56,7 +56,7 @@ export default async function TeamPage() {
           {volunteers.length > 0 && (
             <section className="space-y-8">
               <SectionHeader title="Volunteers" as="h2" />
-              <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 max-[339px]:grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
                 {volunteers.map(member => <TeamCard key={member.email} {...member} />)}
               </div>
             </section>

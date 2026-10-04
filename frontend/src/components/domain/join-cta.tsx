@@ -5,7 +5,7 @@ import { siteConfig } from "@/config/site"
 
 export function JoinCta() {
   return (
-    <section className="w-full bg-[#EAE8F0] text-[#0C0A10] py-24 md:py-32">
+    <section className="w-full bg-[#EAE8F0] text-[#0C0A10] py-16 md:py-24 lg:py-32">
       <div className="container flex flex-col items-center text-center gap-8">
         <h2 className="font-display font-black text-5xl md:text-7xl tracking-tighter max-w-2xl">
           Ready to start building?
