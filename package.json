@@ -1,0 +1,15 @@
+{
+    "private":  true,
+    "workspaces":  [
+                       "frontend",
+                       "backend",
+                       "infra"
+                   ],
+    "name":  "kare-aws-sbg",
+    "scripts":  {
+                    "build:frontend":  "npm run build -w frontend",
+                    "dev:frontend":  "npm run dev -w frontend",
+                    "dev:backend":  "npm run start -w backend",
+                    "build":  "npm run build -w frontend"
+                }
+}

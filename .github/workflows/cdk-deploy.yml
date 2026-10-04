@@ -1,0 +1,44 @@
+name: CDK Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - staging
+          - prod
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment }}
+    defaults:
+      run:
+        working-directory: ./infra
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: CDK Diff
+        run: npx cdk diff KareSbg${{ github.event.inputs.environment == 'dev' && 'Dev' || github.event.inputs.environment == 'staging' && 'Staging' || 'Prod' }}Stack
+        
+      - name: CDK Deploy
+        if: github.event.inputs.environment != 'prod' || github.event.inputs.environment == 'prod' # requires approval for prod in github environments
+        run: npx cdk deploy KareSbg${{ github.event.inputs.environment == 'dev' && 'Dev' || github.event.inputs.environment == 'staging' && 'Staging' || 'Prod' }}Stack --require-approval never

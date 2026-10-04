@@ -1,0 +1,10 @@
+node_modules/
+.DS_Store
+frontend/.next/
+infra/cdk.out/
+
+.next/
+**/.next/
+node_modules/
+**/node_modules/
+.DS_Store

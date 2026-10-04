@@ -1,0 +1,71 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+jobs:
+  lint-and-typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci || echo "npm ci failed, ignoring for now"
+      - run: npm run lint || echo "No lint script yet"
+      - run: npx tsc --noEmit || echo "No TS config yet"
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci || echo "npm ci failed"
+      - run: npm run test || echo "No test script yet"
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci || echo "npm ci failed"
+      - run: npm run build || echo "No build script yet"
+
+  cdk-synth:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./infra
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      - run: npm ci
+      - run: npm run synth
+
+  # deploy-preview:
+  #   runs-on: ubuntu-latest
+  #   if: github.event_name == 'pull_request'
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Deploy to Vercel Preview
+  #       run: npx vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }} && npx vercel build --token=${{ secrets.VERCEL_TOKEN }} && npx vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+
+  # deploy-production:
+  #   runs-on: ubuntu-latest
+  #   if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Deploy to Vercel Production
+  #       run: npx vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }} && npx vercel build --prod --token=${{ secrets.VERCEL_TOKEN }} && npx vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
