@@ -82,6 +82,7 @@ export default async function HomePage() {
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             <ProjectBento projects={featuredProjects as any[]} />
           </div>
         </section>

@@ -22,7 +22,7 @@ export function Hero() {
             className="font-mono text-xs uppercase tracking-widest text-muted-foreground border border-border px-3 py-1 bg-surface/50 animate-fade-up"
             style={{ animationDelay: "100ms" }}
           >
-            // KARE · Krishnan Kovil
+            {`// KARE · Krishnan Kovil`}
           </div>
           
           <h1 className="font-display text-5xl sm:text-6xl lg:text-8xl font-black tracking-tighter leading-[0.9]">
@@ -41,7 +41,7 @@ export function Hero() {
             className="text-lg md:text-xl text-muted-foreground max-w-xl font-medium leading-relaxed animate-fade-up"
             style={{ animationDelay: "500ms" }}
           >
-            We're students at KARE learning cloud by building on AWS. Workshops, labs, hackathons, and projects, run by us, for us.
+            We&apos;re students at KARE learning cloud by building on AWS. Workshops, labs, hackathons, and projects, run by us, for us.
           </p>
           
           <div 

@@ -3,6 +3,7 @@ import * as React from "react"
 import Link from "next/link"
 import { Menu, LogOut } from "lucide-react"
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function MobileSidebar({ navItems, shortName }: { navItems: any[]; shortName: string }) {
   const [isOpen, setIsOpen] = React.useState(false)
   const navRef = React.useRef<HTMLDivElement>(null)
