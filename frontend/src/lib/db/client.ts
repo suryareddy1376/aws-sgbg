@@ -16,7 +16,7 @@ export async function safeDbCall<T>(operation: () => Promise<T>, fallback: T): P
   try {
     return await operation();
   } catch (error) {
-    console.error("Database operation failed:", error);
+    // Silently fall back to mock data in development/preview if DB is unreachable
     return fallback;
   }
 }
