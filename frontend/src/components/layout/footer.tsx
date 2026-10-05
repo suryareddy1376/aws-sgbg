@@ -1,3 +1,4 @@
+"use client"
 import * as React from "react"
 import Link from "next/link"
 import { siteConfig } from "@/config/site"
@@ -7,7 +8,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-border bg-background pt-16 pb-8 overflow-hidden">
+    <footer className="border-t border-border bg-background pt-16 pb-8 overflow-hidden relative">
       <div className="container grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-16">
         
         {/* Brand & Description */}
@@ -77,14 +78,37 @@ export function Footer() {
 
       </div>
 
-      {/* Oversized Wordmark */}
-      <div className="w-full flex justify-center py-8 opacity-5 select-none pointer-events-none">
-        <span className="font-display font-black text-[12vw] leading-none whitespace-nowrap outline-text tracking-tighter">
+      {/* Oversized Wordmark with Mouse Glow */}
+      <div 
+        className="w-full flex justify-center py-8 select-none relative group cursor-default"
+        onMouseMove={(e) => {
+          const rect = e.currentTarget.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          e.currentTarget.style.setProperty('--x', `${x}px`);
+          e.currentTarget.style.setProperty('--y', `${y}px`);
+        }}
+      >
+        {/* Base faint outline */}
+        <span className="font-display font-black text-[12vw] leading-none whitespace-nowrap outline-text tracking-tighter opacity-10">
+          AWS SBG KARE
+        </span>
+        
+        {/* Purple glow overlay masked to text */}
+        <span 
+          className="font-display font-black text-[12vw] leading-none whitespace-nowrap tracking-tighter absolute inset-0 flex justify-center py-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          style={{
+            color: 'transparent',
+            backgroundImage: 'radial-gradient(circle 350px at var(--x, 50%) var(--y, 50%), rgba(124, 58, 237, 1), transparent 100%)',
+            WebkitBackgroundClip: 'text',
+            backgroundClip: 'text'
+          }}
+        >
           AWS SBG KARE
         </span>
       </div>
 
-      <div className="container">
+      <div className="container relative z-10">
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-muted-foreground">
           <p>&copy; {currentYear} {siteConfig.name}.</p>
           <p className="max-w-xl text-center md:text-right leading-relaxed">{siteConfig.trademark}</p>

@@ -1,10 +1,16 @@
 "use client"
 import * as React from "react"
+import { useSpotlight } from "@/hooks/use-spotlight"
 
 export function ArchitectureDiagram() {
+  const spotlightRef = useSpotlight();
+
   return (
-    <div className="relative w-full aspect-square max-w-md mx-auto lg:max-w-none">
-      <svg viewBox="0 0 400 400" className="w-full h-full overflow-visible" aria-hidden="true">
+    <div 
+      ref={spotlightRef as React.RefObject<HTMLDivElement>}
+      className="relative w-full aspect-square max-w-md mx-auto lg:max-w-none spotlight border border-transparent rounded-2xl transition-colors hover:border-primary/20"
+    >
+      <svg viewBox="0 0 400 400" className="w-full h-full overflow-visible relative z-10" aria-hidden="true">
         <defs>
           <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="var(--color-border)" />
