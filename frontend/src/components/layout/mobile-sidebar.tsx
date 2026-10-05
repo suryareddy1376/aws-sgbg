@@ -2,9 +2,9 @@
 import * as React from "react"
 import Link from "next/link"
 import { Menu, LogOut } from "lucide-react"
+import { dashboardNavItems } from "@/config/dashboard"
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function MobileSidebar({ navItems, shortName }: { navItems: any[]; shortName: string }) {
+export function MobileSidebar({ shortName }: { shortName: string }) {
   const [isOpen, setIsOpen] = React.useState(false)
 
   React.useEffect(() => {
@@ -21,8 +21,8 @@ export function MobileSidebar({ navItems, shortName }: { navItems: any[]; shortN
     }
   }, [isOpen])
 
-  const visibleItems = navItems.slice(0, 4)
-  const moreItems = navItems.slice(4)
+  const visibleItems = dashboardNavItems.slice(0, 4)
+  const moreItems = dashboardNavItems.slice(4)
 
   return (
     <>

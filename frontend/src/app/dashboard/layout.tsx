@@ -1,8 +1,9 @@
 import * as React from "react"
 import Link from "next/link"
 import { siteConfig } from "@/config/site"
+import { dashboardNavItems } from "@/config/dashboard"
 import { requireAuth } from "@/lib/auth/session"
-import { LayoutDashboard, User, Calendar, Rocket, Award, Bookmark, ShieldAlert, LogOut } from "lucide-react"
+import { LogOut, ShieldAlert } from "lucide-react"
 import { MobileSidebar } from "@/components/layout/mobile-sidebar"
 
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
@@ -22,15 +23,6 @@ export default async function DashboardLayout({ children }: { children: React.Re
     );
   }
 
-  const navItems = [
-    { label: 'Overview', href: '/dashboard', icon: LayoutDashboard },
-    { label: 'My Profile', href: '/dashboard/profile', icon: User },
-    { label: 'My Events', href: '/dashboard/events', icon: Calendar },
-    { label: 'My Projects', href: '/dashboard/projects', icon: Rocket },
-    { label: 'Certificates', href: '/dashboard/certificates', icon: Award },
-    { label: 'Saved Resources', href: '/dashboard/resources', icon: Bookmark },
-  ];
-
   return (
     <div className="flex min-h-[100dvh] bg-muted/20">
       {/* Sidebar */}
@@ -40,7 +32,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
         </div>
         <div className="py-4">
           <nav className="grid gap-1 px-4 text-sm font-medium">
-            {navItems.map((item) => (
+            {dashboardNavItems.map((item) => (
               <Link key={item.href} href={item.href} className="flex items-center gap-3 rounded-md px-3 py-2 text-muted-foreground transition-all hover:bg-muted hover:text-foreground">
                 <item.icon className="h-4 w-4" />
                 {item.label}
@@ -70,7 +62,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
         <div className="flex-1 overflow-y-auto p-6 md:p-8 pb-24 md:pb-8">
           {children}
         </div>
-        <MobileSidebar navItems={navItems} shortName={siteConfig.shortName} />
+        <MobileSidebar shortName={siteConfig.shortName} />
       </main>
     </div>
   )
