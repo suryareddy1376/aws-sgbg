@@ -1,4 +1,4 @@
-import { Hero } from "@/components/domain/hero";
+﻿import { Hero } from "@/components/domain/hero";
 import { Marquee } from "@/components/domain/marquee";
 import { EditorialList } from "@/components/domain/editorial-list";
 import { SectionHeader } from "@/components/domain/section-header";
@@ -31,14 +31,14 @@ export default async function HomePage() {
         
         {/* What We Do */}
         <section className="container py-16 md:py-24 lg:py-32">
-          <SectionHeader title="What We Do" subtitle="We build cloud skills through hands-on experience and community learning." kicker="01 / Foundation" />
+          <SectionHeader title="What We Do" subtitle="We build cloud skills through hands-on experience and community learning." kicker="Foundation" />
           <EditorialList />
         </section>
 
         {/* Upcoming Events */}
         <section className="container py-16 md:py-24 lg:py-32">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
-            <SectionHeader title="Upcoming Sessions" subtitle="Workshops, builds, and meetups." kicker="02 / Calendar" className="pb-0" />
+            <SectionHeader title="Upcoming Sessions" subtitle="Workshops, builds, and meetups." kicker="Calendar" className="pb-0" />
             <Link 
               href="/events" 
               className="group flex items-center text-sm font-mono font-semibold uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors"
@@ -70,7 +70,7 @@ export default async function HomePage() {
         <section className="bg-surface py-16 md:py-24 lg:py-32 border-y border-border">
           <div className="container">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
-              <SectionHeader title="Featured Builds" subtitle="Architecture and projects shipped by members." kicker="03 / Showcase" className="pb-0" />
+              <SectionHeader title="Featured Builds" subtitle="Architecture and projects shipped by members." kicker="Showcase" className="pb-0" />
               <Link 
                 href="/projects" 
                 className="group flex items-center text-sm font-mono font-semibold uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors"
@@ -91,7 +91,7 @@ export default async function HomePage() {
         <section className="container py-16 md:py-24 lg:py-32">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-start">
             <div className="lg:col-span-5 lg:sticky lg:top-32">
-              <SectionHeader title="Why Join?" kicker="04 / Benefits" className="pb-0" />
+              <SectionHeader title="Why Join?" kicker="Benefits" className="pb-0" />
             </div>
             <div className="lg:col-span-7 flex flex-col pt-4">
               {[

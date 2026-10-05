@@ -7,18 +7,24 @@ import Link from "next/link";
 import { Cloud, Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 
+import { loginAction } from "./actions";
+
 export default function LoginPage() {
   const [isLoading, setIsLoading] = React.useState(false);
   const router = useRouter();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-    // Mock login delay
-    setTimeout(() => {
+    
+    const formData = new FormData(e.currentTarget);
+    
+    try {
+      await loginAction(formData);
+    } catch (error) {
+      // Next.js redirect throws an error to stop execution, we catch it or ignore it
       setIsLoading(false);
-      router.push("/dashboard");
-    }, 1000);
+    }
   };
 
   return (
@@ -47,14 +53,14 @@ export default function LoginPage() {
           <form className="space-y-5" onSubmit={handleSubmit}>
             <div className="space-y-2">
               <Label htmlFor="email">Email Address</Label>
-              <Input id="email" type="email" placeholder="student@kare.edu.in" autoComplete="email" inputMode="email" required disabled={isLoading} className="h-12 text-base" />
+              <Input id="email" name="email" type="email" placeholder="student@kare.edu.in" autoComplete="email" inputMode="email" required disabled={isLoading} className="h-12 text-base" />
             </div>
             <div className="space-y-2">
               <div className="flex justify-between items-center">
                 <Label htmlFor="password">Password</Label>
                 <Link href="/forgot-password" className="text-xs text-primary hover:underline focus-visible:ring-2 focus-visible:ring-accent rounded-sm">Forgot password?</Link>
               </div>
-              <Input id="password" type="password" autoComplete="current-password" required disabled={isLoading} className="h-12 text-base" />
+              <Input id="password" name="password" type="password" autoComplete="current-password" required disabled={isLoading} className="h-12 text-base" />
             </div>
             <Button type="submit" className="w-full h-12 bg-primary hover:bg-primary-hover border-0 text-base shadow-[0_4px_0_0_#13101A] active:shadow-none active:translate-y-1 transition-all" disabled={isLoading}>
               {isLoading ? <Loader2 className="h-5 w-5 mr-2 animate-spin" /> : null}

@@ -95,7 +95,7 @@ export function Navbar() {
                   <Link 
                     key={item.href} 
                     href={item.href} 
-                    className="flex items-center gap-4 text-3xl font-display font-bold tracking-tight py-2 focus-visible:ring-2 focus-visible:ring-accent opacity-0 animate-in fade-in slide-in-from-bottom-4" 
+                    className="flex items-center gap-4 text-3xl font-display font-bold tracking-tight py-2 focus-visible:ring-2 focus-visible:ring-accent animate-fade-up" 
                     style={{ animationFillMode: 'forwards', animationDelay: `${i * 60}ms` }}
                     onClick={() => setIsOpen(false)}
                   >

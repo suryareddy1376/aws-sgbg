@@ -5,7 +5,7 @@ const FOCUS_AREAS = ["CLOUD", "GENAI", "SERVERLESS", "DEVOPS", "DATA", "SECURITY
 export function Marquee() {
   return (
     <div className="w-full border-y border-border bg-surface overflow-hidden flex relative select-none">
-      <div className="flex w-max min-w-full hover:![animation-play-state:paused] motion-reduce:!animate-none animate-[marquee_20s_linear_infinite]">
+      <div className="flex w-max min-w-full hover:![animation-play-state:paused] motion-reduce:!animate-none animate-[marquee_10s_linear_infinite] md:animate-[marquee_20s_linear_infinite]">
         {/* Duplicate twice to ensure infinite scroll fills screen */}
         {[...Array(2)].map((_, i) => (
           <div key={i} className="flex items-center" aria-hidden={i > 0}>
@@ -20,6 +20,11 @@ export function Marquee() {
           </div>
         ))}
       </div>
+      
+      {/* Edge fade masks */}
+      <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-surface to-transparent pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-surface to-transparent pointer-events-none" />
+      
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0%); }

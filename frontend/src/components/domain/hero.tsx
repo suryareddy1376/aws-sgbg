@@ -22,7 +22,7 @@ export function Hero() {
             className="font-mono text-xs uppercase tracking-widest text-muted-foreground border border-border px-3 py-1 bg-surface/50 animate-fade-up"
             style={{ animationDelay: "100ms" }}
           >
-            {`// KARE � Krishnan Kovil`}
+            {`Kalasalingam Academy of Research and Education`}
           </div>
           
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tighter leading-[0.9]">

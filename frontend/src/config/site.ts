@@ -10,7 +10,7 @@ export const siteConfig = {
     location: 'Krishnan Kovil, Tamil Nadu, India',
   },
   social: {
-    instagram: 'https://www.instagram.com/kare_aws.cloudclub',
+    instagram: 'https://www.instagram.com/kare_aws.sbg/',
     linkedin: 'https://www.linkedin.com/company/kare-awscloudclub/',
     meetup: 'https://www.meetup.com/awscloudclub_kare/',
     github: '',

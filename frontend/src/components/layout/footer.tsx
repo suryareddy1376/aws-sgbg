@@ -47,8 +47,8 @@ export function Footer() {
               </a>
             </li>
             <li>
-              <a href="https://chat.whatsapp.com/example" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 py-2 -my-2 text-muted-foreground hover:text-primary transition-colors focus-visible:ring-2 focus-visible:ring-accent w-fit">
-                <MessageCircle className="h-4 w-4" /> WhatsApp
+              <a href="https://chat.whatsapp.com/ERoTZkAyCdr9TvC5LdillL" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 py-2 -my-2 text-muted-foreground hover:text-primary transition-colors focus-visible:ring-2 focus-visible:ring-accent w-fit">
+                <MessageCircle className="h-4 w-4" /> WhatsApp Community
               </a>
             </li>
             <li>
@@ -64,8 +64,8 @@ export function Footer() {
           <h4 className="font-mono text-xs font-bold text-foreground mb-6 uppercase tracking-widest text-border">Contact</h4>
           <ul className="space-y-4 text-sm font-medium">
             <li>
-              <a href="mailto:awsclub@kare.edu.in" className="text-muted-foreground hover:text-primary transition-colors focus-visible:ring-2 focus-visible:ring-accent">
-                awsclub@kare.edu.in
+              <a href="mailto:awscloudclub@klu.ac.in" className="text-muted-foreground hover:text-primary transition-colors focus-visible:ring-2 focus-visible:ring-accent">
+                awscloudclub@klu.ac.in
               </a>
             </li>
             <li className="text-muted-foreground">

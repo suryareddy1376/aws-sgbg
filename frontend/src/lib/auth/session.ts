@@ -9,7 +9,7 @@ export async function getSession(): Promise<UserContext | null> {
   if (process.env.NODE_ENV === 'development') {
     return {
       id: 'usr_999',
-      email: 'admin@awsclubkare.com',
+      email: 'admin@kare.edu.in',
       role: 'core_member',
       adminRoles: ['super_admin']
     };
@@ -29,7 +29,7 @@ export async function getSession(): Promise<UserContext | null> {
   if (sessionToken?.value === 'admin-token') {
     return {
       id: 'usr_999',
-      email: 'admin@awsclubkare.com',
+      email: 'admin@kare.edu.in',
       role: 'core_member',
       adminRoles: ['super_admin']
     };
